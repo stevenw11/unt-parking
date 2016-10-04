@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="forumApp">
+  <head>
+    <title>Test</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="Styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers
+.js"></script>
+  <body class="body-struct" ng-controller="mainController">
+
+    <!-- Internal sidebar that appears -->
+    <div class="side-container" ng-controller="navController">
+      <div id="side-bar" class="sidenav sidenav-skin">
+	<span>
+	  <a href="#/" ng-click="cNav('home')">
+	    <h1 class="header">UNICORN PARKING</h1>
+		<h4 class="header">Find That Rare Spot<h4>
+      </a>
+	  <hr>
+	  <div ng-show="nav==='home'">
+    	<a href="#"> Select Campus</a>
+ 	    <a href="#"> Select Permit</a>
+ 	    <a href="#"> Select Lot</a>
+	  </div>
+	</span>
+      </div>
+      <!-- NAVBAR that is shown always -->
+      <div id="main-bar" class="sidebar sidebar-skin">
+        <div id="sidebar-toggle" class="sidebar-btn">
+          <a href="javascript:void(0)" onclick="openNav();">
+	    <i class="glyphicon glyphicon-menu-hamburger"></i>
+          </a>
+		</div>
+        	<a href="#/" ng-click="cNav('home')" class="header"><i class="fa fa-home"></i></a>
+    	</div>
+
+    </div> 
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main" class="main-container" ng-view>
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+    </div> 
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="Scripts/navbar.js"></script>
+  </body>
+</html>
