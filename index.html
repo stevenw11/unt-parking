@@ -12,8 +12,7 @@
     <script src="app.js"></script>
     <script src="controllers
 .js"></script>
-  <body class="body-struct" ng-controller="mainController">
-
+  <body class="" ng-controller="mainController">
     <!-- Internal sidebar that appears -->
     <div class="side-container" ng-controller="navController">
       <div id="side-bar" class="sidenav sidenav-skin">
@@ -41,17 +40,18 @@
     	</div>
 
     </div> 
-
-	<div class="brand-header">
-			<h1>Unicorn Parking</h1>
-			<h4>Find that Rare Spot</h4>
+	<div class="container">
+		<div class="center">
+			<h1 class="page-header">Unicorn Parking</h1>
+			<h4 class="">Find that Rare Spot</h4>
+		</div>
+		<hr>
+    	<!-- MAIN CONTENT AND INJECTED VIEWS -->
+    	<div id="main" class="" ng-view>
+    	    <!-- angular templating -->
+    	    <!-- this is where content will be injected -->
+    	</div> 
 	</div>
-
-    <!-- MAIN CONTENT AND INJECTED VIEWS -->
-    <div id="main" class="main-container" ng-view>
-        <!-- angular templating -->
-        <!-- this is where content will be injected -->
-    </div> 
  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
