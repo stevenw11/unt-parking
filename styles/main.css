@@ -117,80 +117,19 @@ body::-webkit-scrollbar-thumb {
 ==========================================
 ==========================================
 */
-.search {
-  padding: 3px;
-  border:  solid 1px #E4E4E4;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.search input{
-    border: 0;
-    box-shadow: none;
-    background-color: transparent;
-}
-.search button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: white;
-    padding: 5px 10px 0px 10px;
-    border-left: solid 1px #ccc;
-}
-
-.search button:hover{
-    border: 0;
-    color: #CCC;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-.search button:focus{
-    border: 0;
-    color: #CCC;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-.search .glyphicon-search{
-    font-size: 23px;
-}
-/* end search */
 
 hr {
   border-top: 1px solid #818181;
 }
 
 body{
-  background: #0c0c0c;
-  color: white;
-  height: 100%;
+	margin-left: 50px;
+	background: #0c0c0c;
+	color: white;
+	height: 100%;
+	padding: 1em;
 }
 
-.splash-container{
-  position: absolute;
-  bottom: 50%;
-}
-
-
-@media (min-width: 480px){
-  .body{
-     background-size: cover;
-  }
-.splash-container{
-  right: 10%;
-}
-
-
-}
-
-@media (max-width: 480px){
-  .body{
-
-  }
-
-}
 .header{
   font-weight: 900;
 }
@@ -200,16 +139,10 @@ body{
 }
 
 .main-container{
-  margin-left: 50px;
-  right: 50px;
-}
-/* sorry had to modify ng-scope :( */
-#content > .ng-scope {
-  margin-left: 50px;
-}
 
+}
 
 
 #content{
-  padding: 2em;
+
 }

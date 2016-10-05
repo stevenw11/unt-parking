@@ -7,7 +7,7 @@ parkingApp.config(function($routeProvider) {
 	$routeProvider
 	// route for the home page
     .when('/', {
-		templateUrl : 'views/Home/home.html',
+		templateUrl : 'views/home/home.html',
 		controller  : 'mainController',
 	}) 
 
