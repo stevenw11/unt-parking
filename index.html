@@ -22,32 +22,36 @@
 		<h4 class="header">Find That Rare Spot<h4>
       </a>
 	  <hr>
-	  <div ng-show="nav==='home'">
-    	<a href="#"> Select Campus</a>
- 	    <a href="#"> Select Permit</a>
- 	    <a href="#"> Select Lot</a>
+	  <div>
+    	<a href="#/">Select Campus</a>
+ 	    <a href="#/permits">Select Permit</a>
+ 	    <a href="#/lots"> Select Lot</a>
+		<a href="#/spots">Select Spot</a>
 	  </div>
 	</span>
       </div>
       <!-- NAVBAR that is shown always -->
       <div id="main-bar" class="sidebar sidebar-skin">
-        <div id="sidebar-toggle" class="sidebar-btn">
-          <a href="javascript:void(0)" onclick="openNav();">
-	    <i class="glyphicon glyphicon-menu-hamburger"></i>
-          </a>
+      	<div id="sidebar-toggle" class="sidebar-btn">
+        	<a href="javascript:void(0)" onclick="openNav();">
+	    		<i class="glyphicon glyphicon-menu-hamburger"></i>
+        	</a>
 		</div>
-        	<a href="#/" ng-click="cNav('home')" class="header"><i class="fa fa-home"></i></a>
-    	</div>
+        <a href="#/" class="header"><i class="fa fa-home"></i></a>
+        <a href="#/permits" class="header"><i class="fa fa-file"></i></a>
+        <a href="#/lots" class="header"><i class="fa fa-th-large"></i></a>
+        <a href="#/spots" class="header"><i class="fa fa-car"></i></a>
+	</div>
 
     </div> 
 	<div class="container">
 		<div class="center">
 			<h1 class="page-header">Unicorn Parking</h1>
-			<h4 class="">Find that Rare Spot</h4>
+			<h3 class="">Find that Rare Spot</h3>
 		</div>
 		<hr>
     	<!-- MAIN CONTENT AND INJECTED VIEWS -->
-    	<div id="main" class="" ng-view>
+    	<div id="main" class="" ng-view >
     	    <!-- angular templating -->
     	    <!-- this is where content will be injected -->
     	</div> 

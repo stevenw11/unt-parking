@@ -1,0 +1,26 @@
+<div id="content" class="row">
+	<div class="col-xs-12">
+		<h3>Select a Spot</h3><br>
+		<div class="col-xs-12 col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th><h3>Lot</h3></th>
+						<th><h3>Spot</h3></th>
+						<th><h3>Permit</h3></th>
+						<th><h3>Vacant</h3></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="x in table" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+						<td><h4>LOT-{{ x.Lot }}</h4></td>
+						<td><h4>{{ x.Spot }}</h4></td>
+						<td><h4>{{ x.Permit }}</h4></td>
+						<td ng-show="x.Open=='true'" ><h4>Yes</h4></td>
+						<td ng-show="x.Open=='false'"><h4>No</h4></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
