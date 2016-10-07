@@ -1,26 +1,22 @@
 <div id="content" class="row">
 	<div class="col-xs-12">
-		<h3>Select a Spot</h3><br>
-		<div class="col-xs-12 col-md-12">
-			<table class="table">
-				<thead>
-					<tr>
-						<th><h3>Lot</h3></th>
-						<th><h3>Spot</h3></th>
-						<th><h3>Permit</h3></th>
-						<th><h3>Vacant</h3></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="x in spots" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
-						<td><h4>LOT-{{ x.Lot }}</h4></td>
-						<td><h4>{{ x.Spot }}</h4></td>
-						<td><h4>{{ x.Permit }}</h4></td>
-						<td ng-show="x.Open=='true'" ><h4>Yes</h4></td>
-						<td ng-show="x.Open=='false'"><h4>No</h4></td>
-					</tr>
-				</tbody>
-			</table>
+		<h3>Select a Spot</h3>
+		<form ng-init="criteria = Spot">
+			<label>Filter Spot by: </label>
+				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Spot">Number</label>
+				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Open == 'false' ">Vacant</label>
+				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Type">Permit</label>
+		</form>
+		<br>
+		<br>
+		<div class="" ng-repeat="x in spots | orderBy: criteria ">
+			<button type="button" class="btn btn-sqr btn-xs col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+				<h2>LOT-{{ x.Lot }}</h2>
+				<h3>{{ x.Spot }}</h3>
+				<h3>{{ x.Type }}</h3>
+				<h3 ng-show="x.Open=='true'">Yes</h3>
+				<h3 ng-show="x.Open=='false'">No</h3> 
+			</button>
 		</div>
 	</div>
 </div>

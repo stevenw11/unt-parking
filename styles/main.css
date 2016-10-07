@@ -91,7 +91,7 @@ body::-webkit-scrollbar-thumb {
 	text-align: center;
 }
 .sidebar a {
-	padding: 8px 8px 8p 8px;
+	padding: 8px 8px 8px 8px;
 	text-decoration: none;
 	font-size: 28px;
 	color: #818181;
@@ -123,32 +123,44 @@ hr {
 }
 body{
 	margin-left: 50px;
-	padding-left: 15px;
-	padding-right: 15px;
 	background: #0c0c0c;
 	color: white;
 	height: 100%;
-	padding: 1em;
+	overflow-x: hidden;
 }
 
 .header{
-	font-weight: 900;
+	font-weight: 780;
 }
 .page-title{
-	font-size: 32px;
+	font-size: 30px;
 	color: #818181;
 }
 
+.btn-sqr{
+	border-radius: 0px !important;
+}
 .btn-fat{
 	padding: 2em;
 }
 
 .resultDisplay{
+	margin-bottom: 20px;
+}
+
+#resultDisplay{
+	height: inherit;
+	width: inherit;
+	position: fixed;
+	top: inherit;
+	right: inherit;
+	overflow-y: scroll;
 	overflow-x: hidden;
+	margin-bottom: 20px;
 }
 
 #content{
-
+	margin-left: none;
 }
 
 
