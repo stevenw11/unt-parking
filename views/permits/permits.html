@@ -3,10 +3,11 @@
 		<h3>Select your Permit</h3>
 		<div class="row">
 			<div class="" ng-repeat="x in permits">
-				<button type="button" class="btn btn-sqr btn-success btn-lg btn-fat col-xs-12 col-md-6">
+				<a href="#/lots" type="button" ng-model="status" ng-click="status.Permit = x.Permit"
+					class="btn btn-sqr btn-success btn-lg btn-fat col-xs-12 col-md-6">
 					<h1>{{ x.Permit }}</h1>
 					<h6>{{ x.Type }}</h6>
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>

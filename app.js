@@ -1,7 +1,6 @@
 // create the module and name it forumApp
 // also include ngRoute for all our routing needs
 var parkingApp = angular.module('parkingApp',['ngRoute']);
-
 // configure our routes
 parkingApp.config(function($routeProvider) {
 	$routeProvider
@@ -35,4 +34,3 @@ parkingApp.config(function($routeProvider) {
 // });
 
 });
-

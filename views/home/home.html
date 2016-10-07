@@ -2,8 +2,10 @@
 	<div class="col-xs-12">
 		<h4>Select your campus</h4><br>
 		<div class="row">
-			<button type="button" class="btn btn-success btn-lg btn-sqr btn-fat col-xs-12 col-md-6"><h2>Main Campus</h2></button>
-			<button type="button" class="btn btn-success btn-lg btn-sqr btn-fat col-xs-12 col-md-6"><h2>Discovery Park</h2></button>
+			<div class="" ng-repeat="x in campus">
+				<a href="#/permits" type="button" class="btn btn-success btn-lg btn-sqr btn-fat col-xs-12 col-md-6" ng-model="status" ng-click="status.Campus = x.Campus">
+					<h1>{{ x.Campus }}</h1>
+				</a>
 		</div>
 	</div>
 </div>

@@ -3,18 +3,18 @@
 		<h3>Select a Lot</h3>
 		<form ng-init="criteria = Lot">
 			<label>Filter Spot by: </label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Lot">Lot Number</label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Campus">Campus</label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Spots == 0">Spots Free</label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Lot">Lot Number</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Campus">Campus</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Spots == 0">Spots Free</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
 		</form>
 		<div class="row">
 			<div class="" ng-repeat="x in lots | orderBy: criteria">
-				<button type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+				<a href="#/spots" type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-model="status" ng-click="status.Lot = x.Lot" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
 					<h2>LOT{{ x.Lot }}</h2>
 					<h4>Campus: {{ x.Campus }}</h4>
 					<h4>Open Spots: {{ x.Spots }}/{{ x.Total }}</h4>
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>

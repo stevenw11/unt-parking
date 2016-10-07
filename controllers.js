@@ -1,6 +1,33 @@
+
 // create the controller and inject Angular's $scope
-parkingApp.controller('mainController', function($scope, $http) {
+parkingApp.controller('mainController', function( $rootScope, $scope, $http) {
 	$scope.dir = 'home';
+	// init once?
+	$rootScope.status = {
+		"Campus": "default",
+		"Permit": "default",
+		"Lot": "default",
+		"Spot": "default"
+	};
+
+	// Create a local instance
+	var tb = this;
+	tb.table = [];
+
+	// Get the database 
+	$http.get('/database/campus/campusdatabase.json')
+		.then(function(result) {
+			var i;
+			// grab each element in the data object
+			for( i = 0; i < result.data.length; i++){
+				tb.table.push(result.data[i]);		//  grab the DATABASE
+			}
+	});
+	
+	// Assign the database to the $scope (so it can be used in HTML)
+	$scope.campus = tb.table;
+	console.log("Status Home: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
+
 });
 // for each new page, a new controller is needed (maybe)
 // default structure is
@@ -8,9 +35,9 @@ parkingApp.controller('mainController', function($scope, $http) {
 //     $scope.<variable> = '<content>';
 // });
 
-parkingApp.controller('permitsController', function($scope, $http) {
+parkingApp.controller('permitsController', function($rootScope,$scope, $http) {
 	$scope.dir = 'permits';
-	$scope.dir = 'lots';
+	console.log("Status: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 	// Create a local instance
 	var tb = this;
 	tb.table = [];
@@ -29,12 +56,14 @@ parkingApp.controller('permitsController', function($scope, $http) {
 	
 	// Assign the database to the $scope (so it can be used in HTML)
 	$scope.permits = tb.table;
+	console.log("Status Permit: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 });
 
 
 // Get the General Database
-parkingApp.controller('lotController', function($scope, $http) {
+parkingApp.controller('lotController', function( $rootScope, $scope, $http) {
 	$scope.dir = 'lots';
+
 	// Create a local instance
 	var tb = this;
 	tb.table = [];
@@ -53,11 +82,13 @@ parkingApp.controller('lotController', function($scope, $http) {
 	
 	// Assign the database to the $scope (so it can be used in HTML)
 	$scope.lots = tb.table;
+	console.log("Status Lot: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 });
 
 // Spot Controller function
-parkingApp.controller('spotController', function($scope, $http) {
+parkingApp.controller('spotController', function($rootScope,$scope, $http) {
 	$scope.dir = 'spots';
+
 	// Create a local instance
 	var tb = this;
 	tb.table = [];
@@ -76,6 +107,7 @@ parkingApp.controller('spotController', function($scope, $http) {
 	
 	// Assign the database to the $scope (so it can be used in HTML)
 	$scope.spots = tb.table;
+	console.log("Status Spot: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 
 });
 
@@ -85,7 +117,7 @@ parkingApp.filter('capitalize', function() {
 	}
 });
 
-parkingApp.controller('navController', function($scope) {
+parkingApp.controller('navController', function($rootScope,$scope, $http) {
 	// get starting value of nav
 	var URL = window.location.href;
 
@@ -110,6 +142,5 @@ parkingApp.controller('navController', function($scope) {
 	// Change current title and current navigation
 	$scope.cNav = function( newNav ){
 		$scope.nav = newNav;
-}; 
+	} 
 });
-
