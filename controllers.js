@@ -10,54 +10,73 @@ parkingApp.controller('mainController', function($scope, $http) {
 
 parkingApp.controller('permitsController', function($scope, $http) {
 	$scope.dir = 'permits';
+	$scope.dir = 'lots';
+	// Create a local instance
+	var tb = this;
+	tb.table = [];
+
+	// Get the database 
+	$http.get('/database/permits/permitsdatabase.json')
+		.then(function(result) {
+			var i;
+			// grab each element in the data object
+			for( i = 0; i < result.data.length; i++){
+				tb.table.push(result.data[i]);		//  grab the DATABASE
+				//console.log(tb.table[i]);
+				//console.log(result.data[i]);
+			}
+	});
+	
+	// Assign the database to the $scope (so it can be used in HTML)
+	$scope.permits = tb.table;
 });
 
 
 // Get the General Database
 parkingApp.controller('lotController', function($scope, $http) {
 	$scope.dir = 'lots';
-	$scope.table = [
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spots":"60","Total":"120","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"002","Spots":"53","Total":"120","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"003","Spots":"24","Total":"120","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"004","Spots":"55","Total":"120","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"005","Spots":"0","Total":"120","Open":"false"},
-	];
+	// Create a local instance
+	var tb = this;
+	tb.table = [];
 
-	function getStatus( t ){
-		var i;
-		for( i=0; i < t.length() ; i++ ){
-			if( t[i].Spots=='0' ){
-				t[i].Open = false;
+	// Get the database 
+	$http.get('/database/lots/lotdatabase.json')
+		.then(function(result) {
+			var i;
+			// grab each element in the data object
+			for( i = 0; i < result.data.length; i++){
+				tb.table.push(result.data[i]);		//  grab the DATABASE
+				//console.log(tb.table[i]);
+				//console.log(result.data[i]);
 			}
-			else{
-				t[i].Open = true;
-			}
-		}
-	}
-
-	function isOpen( t ){
-		if( t.Spots=='0' ){
-			t.Open = false;
-		}
-		else{
-			t.Open = true;
-		}
-	}
-
-
+	});
+	
+	// Assign the database to the $scope (so it can be used in HTML)
+	$scope.lots = tb.table;
 });
 
 // Spot Controller function
 parkingApp.controller('spotController', function($scope, $http) {
 	$scope.dir = 'spots';
-	$scope.table = [
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spot":"001","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spot":"002","Open":"false"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spot":"003","Open":"false"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spot":"004","Open":"true"},
-		{"Campus":"Discovery Park","Permit":"Eagle","Lot":"001","Spot":"005","Open":"false"}
-	];
+	// Create a local instance
+	var tb = this;
+	tb.table = [];
+
+	// Get the database 
+	$http.get('/database/spots/spotdatabase.json')
+		.then(function(result) {
+			var i;
+			// grab each element in the data object
+			for( i = 0; i < result.data.length; i++){
+				tb.table.push(result.data[i]);		//  grab the DATABASE
+				//console.log(tb.table[i]);
+				//console.log(result.data[i]);
+			}
+	});
+	
+	// Assign the database to the $scope (so it can be used in HTML)
+	$scope.spots = tb.table;
+
 });
 
 parkingApp.filter('capitalize', function() {

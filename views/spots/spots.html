@@ -12,7 +12,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="x in table" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+					<tr ng-repeat="x in spots" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
 						<td><h4>LOT-{{ x.Lot }}</h4></td>
 						<td><h4>{{ x.Spot }}</h4></td>
 						<td><h4>{{ x.Permit }}</h4></td>

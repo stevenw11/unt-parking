@@ -1,0 +1,14 @@
+[{"Permit":"A","Type":"Reserved"},
+{"Permit":"HD","Type":"Hall Director Reserved"},
+{"Permit":"FS","Type":"Faculty Staff"},
+{"Permit":"E","Type":"Eagle"},
+{"Permit":"RS","Type":"Remote Parking"},
+{"Permit":"R","Type":"Resident"},
+{"Permit":"TF","Type":"Teaching Fellow"},
+{"Permit":"V","Type":"Vendor/Contractor"},
+{"Permit":"HF","Type":"Retiree"},
+{"Permit":"HSG","Type":"Highland Street Garage Access Card"},
+{"Permit":"HSG-Reserved","Type":"Highland Street Garage Access Card 1st floor"},
+{"Permit":"HSG-Resident","Type":"Highland Street Garage Resident Student Access"},
+{"Permit":"UCG","Type":"Union Circle Garage"}
+]

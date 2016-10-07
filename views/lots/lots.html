@@ -1,7 +1,7 @@
 <div id="content" class="row">
 	<div class="col-xs-12">
 		<h3>Select a Lot</h3><br>
-		<div class="col-xs-12 col-md-12">
+		<div class="col-xs-12">
 			<table class="table">
 				<thead>
 					<tr>
@@ -12,7 +12,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="x in table" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+					<tr ng-repeat="x in lots" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
 						<td><h4>LOT-{{ x.Lot }}</h4></td>
 						<td><h4>{{ x.Permit }}</h4></td>
 						<td><h4>{{ x.Campus }}</h4></td>
