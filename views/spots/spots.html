@@ -7,16 +7,15 @@
 				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Open == 'false' ">Vacant</label>
 				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Type">Permit</label>
 		</form>
-		<br>
-		<br>
-		<div class="" ng-repeat="x in spots | orderBy: criteria ">
-			<button type="button" class="btn btn-sqr btn-xs col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
-				<h2>LOT-{{ x.Lot }}</h2>
-				<h3>{{ x.Spot }}</h3>
-				<h3>{{ x.Type }}</h3>
-				<h3 ng-show="x.Open=='true'">Yes</h3>
-				<h3 ng-show="x.Open=='false'">No</h3> 
-			</button>
+		<div class="row">
+			<div class="" ng-repeat="x in spots | orderBy: criteria ">
+				<button type="button" class="btn btn-sqr btn-xs col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+					<h2>LOT{{ x.Lot }}-{{ x.Spot }}</h4>
+					<h4>Permit: {{ x.Type }}</h4>
+					<h4 ng-show="x.Open=='true'">Vacant: Yes</h4>
+					<h4 ng-show="x.Open=='false'">Vacant: No</h4> 
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

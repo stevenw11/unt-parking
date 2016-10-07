@@ -5,18 +5,17 @@
 			<label>Filter Spot by: </label>
 				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Lot">Lot Number</label>
 				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Campus">Campus</label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Spots != 0">Spots Free</label>
-				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Open == 'false' ">Open</label>
+				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Spots == 0">Spots Free</label>
+				<label class="radio-inline"><input ng-model="criteria" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
 		</form>
-		<br>
-		<br>
-		<div class="" ng-repeat="x in lots | orderBy: criteria">
-			<button type="button" class="btn btn-sqr btn-sm col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
-				<h2>LOT-{{ x.Lot }}</h2>
-				<h3>{{ x.Type }}</h3>
-				<h3>{{ x.Campus }}</h3>
-				<h3>{{ x.Spots }}/{{ x.Total }}</h3>
-			</button>
+		<div class="row">
+			<div class="" ng-repeat="x in lots | orderBy: criteria">
+				<button type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+					<h2>LOT{{ x.Lot }}</h2>
+					<h4>Campus: {{ x.Campus }}</h4>
+					<h4>Open Spots: {{ x.Spots }}/{{ x.Total }}</h4>
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
