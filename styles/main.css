@@ -142,7 +142,13 @@ body{
 .btn-fat{
 	padding: 2em;
 }
+
+.resultDisplay{
+	overflow-x: hidden;
+}
+
 #content{
+
 }
 
 
