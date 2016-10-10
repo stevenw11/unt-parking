@@ -2,10 +2,10 @@
 	<div class="col-xs-12" id="filterBar">
 		<h3>Select a Lot</h3>
 		<form ng-init="criteria = Lot">
-			<label>Filter Spot by: </label>
+			<label class="">Filter Spot by: </label>
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Lot">Lot Number</label>
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Campus">Campus</label>
-				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Spots == 0">Spots Free</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Spots">Spots Free</label>
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
 		</form>
 		<div class="row">

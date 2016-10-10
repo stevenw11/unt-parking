@@ -1,5 +1,10 @@
-# unt-parking
+UNT-PARKING
 An app for CSCE 4444. Check to see if there are any open parking spots at UNT
+
+Currently:
+Database is implemented via JSON, of course that is slow nce user count increases
+True implementation will be using SQL, which the folks in Database will be implementing :D
+
 
 Basic Framework   
 1. User Log In                  - Connor   
