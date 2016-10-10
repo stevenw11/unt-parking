@@ -5,6 +5,10 @@ Currently:
 Database is implemented via JSON, of course that is slow nce user count increases
 True implementation will be using SQL, which the folks in Database will be implementing :D
 
+Login:
+https://www.theodo.fr/blog/2015/08/handling-basic-route-authorization-in-angularjs/
+Implementing a login feature.
+
 
 Basic Framework   
 1. User Log In                  - Connor   
