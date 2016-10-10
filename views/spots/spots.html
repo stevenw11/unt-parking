@@ -10,12 +10,14 @@
 		<div class="row">
 			<div class="" ng-repeat="x in spots | orderBy: criteria ">
 				<a href="" type="button" class="btn btn-sqr btn-xs col-xs-12" ng-model="status" ng-click="status.Spot = x.Spot"
-					 ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+					 ng-class="{true:'btn-success', false:'btn-danger disabled'}[x.Open]">
 					<h2>LOT{{ x.Lot }}-{{ x.Spot }}</h4>
 					<h4>Permit: {{ x.Type }}</h4>
-					<h4 ng-show="x.Open=='true'">Vacant: Yes</h4>
-					<h4 ng-show="x.Open=='false'">Vacant: No</h4> 
+					<h4 ng-show="x.Open == 'true'">Vacant: Yes</h4>
+					<h4 ng-show="x.Open == 'false'">Vacant: No</h4> 
 				</a>
+			</div>
+			<div id="lotView">
 			</div>
 		</div>
 	</div>

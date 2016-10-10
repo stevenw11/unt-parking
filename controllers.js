@@ -88,7 +88,6 @@ parkingApp.controller('lotController', function( $rootScope, $scope, $http) {
 // Spot Controller function
 parkingApp.controller('spotController', function($rootScope,$scope, $http) {
 	$scope.dir = 'spots';
-
 	// Create a local instance
 	var tb = this;
 	tb.table = [];

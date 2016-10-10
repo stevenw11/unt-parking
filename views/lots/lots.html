@@ -9,8 +9,8 @@
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
 		</form>
 		<div class="row">
-			<div class="" ng-repeat="x in lots | orderBy: criteria">
-				<a href="#/spots" type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-model="status" ng-click="status.Lot = x.Lot" ng-class="{true:'btn-success', false:'btn-danger'}[x.Open]">
+			<div class="" ng-repeat="x in lots | orderBy: status">
+				<a href="#/spots" type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-model="status" ng-click="status.Lot = x.Lot" ng-class="{true:'btn-success', false:'btn-danger disabled'}[x.Open]">
 					<h2>LOT{{ x.Lot }}</h2>
 					<h4>Campus: {{ x.Campus }}</h4>
 					<h4>Open Spots: {{ x.Spots }}/{{ x.Total }}</h4>

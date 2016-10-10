@@ -137,6 +137,11 @@ body{
 	color: #818181;
 }
 
+.title-navbar{
+	font-weight: 780!important;
+	color: white !important;
+	padding-bottom: .25em;
+}
 .btn-sqr{
 	border-radius: 0px !important;
 }
