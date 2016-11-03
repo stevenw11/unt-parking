@@ -1,4 +1,3 @@
-
 // create the controller and inject Angular's $scope
 parkingApp.controller('mainController', function( $rootScope, $scope, $http) {
 	$scope.dir = 'home';
@@ -10,25 +9,17 @@ parkingApp.controller('mainController', function( $rootScope, $scope, $http) {
 		"Spot": "default"
 	};
 
-	// Create a local instance
-	var tb = this;
-	tb.table = [];
-
-	// Get the database 
-	$http.get('/database/campus/campusdatabase.json')
-		.then(function(result) {
-			var i;
-			// grab each element in the data object
-			for( i = 0; i < result.data.length; i++){
-				tb.table.push(result.data[i]);		//  grab the DATABASE
-			}
+	$http.get("http://untparkingio.000webhostapp.com/database/getCampus.php")
+	   .then(function (response) {
+			$scope.campus = response.data.CampusDB;
 	});
-	
+
 	// Assign the database to the $scope (so it can be used in HTML)
-	$scope.campus = tb.table;
+	//$scope.campus = tb.table;
 	console.log("Status Home: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 
 });
+
 // for each new page, a new controller is needed (maybe)
 // default structure is
 // forumApp.controller('<page>Controller', function($scope) {
@@ -37,25 +28,12 @@ parkingApp.controller('mainController', function( $rootScope, $scope, $http) {
 
 parkingApp.controller('permitsController', function($rootScope,$scope, $http) {
 	$scope.dir = 'permits';
-	console.log("Status: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
-	// Create a local instance
-	var tb = this;
-	tb.table = [];
 
-	// Get the database 
-	$http.get('/database/permits/permitsdatabase.json')
-		.then(function(result) {
-			var i;
-			// grab each element in the data object
-			for( i = 0; i < result.data.length; i++){
-				tb.table.push(result.data[i]);		//  grab the DATABASE
-				//console.log(tb.table[i]);
-				//console.log(result.data[i]);
-			}
+	$http.get("http://untparkingio.000webhostapp.com/database/getPermits.php")
+	   .then(function (response) {
+			$scope.permit = response.data.PermitsDB;
 	});
-	
-	// Assign the database to the $scope (so it can be used in HTML)
-	$scope.permits = tb.table;
+
 	console.log("Status Permit: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 });
 
@@ -63,52 +41,64 @@ parkingApp.controller('permitsController', function($rootScope,$scope, $http) {
 // Get the General Database
 parkingApp.controller('lotController', function( $rootScope, $scope, $http) {
 	$scope.dir = 'lots';
-
-	// Create a local instance
-	var tb = this;
-	tb.table = [];
-
-	// Get the database 
-	$http.get('/database/lots/lotdatabase.json')
-		.then(function(result) {
-			var i;
-			// grab each element in the data object
-			for( i = 0; i < result.data.length; i++){
-				tb.table.push(result.data[i]);		//  grab the DATABASE
-				//console.log(tb.table[i]);
-				//console.log(result.data[i]);
-			}
+	$http.get("http://untparkingio.000webhostapp.com/database/getLots.php")
+	   .then(function (response) {
+			$scope.lots = response.data.LotsDB;
 	});
-	
+
 	// Assign the database to the $scope (so it can be used in HTML)
-	$scope.lots = tb.table;
+	//$scope.lots = tb.table;
 	console.log("Status Lot: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 });
 
 // Spot Controller function
 parkingApp.controller('spotController', function($rootScope,$scope, $http) {
 	$scope.dir = 'spots';
-	// Create a local instance
-	var tb = this;
-	tb.table = [];
 
-	// Get the database 
-	$http.get('/database/spots/spotdatabase.json')
-		.then(function(result) {
-			var i;
-			// grab each element in the data object
-			for( i = 0; i < result.data.length; i++){
-				tb.table.push(result.data[i]);		//  grab the DATABASE
-				//console.log(tb.table[i]);
-				//console.log(result.data[i]);
-			}
+	$http.get("http://untparkingio.000webhostapp.com/database/getSpaces.php")
+	   .then(function (response) {
+			$scope.spots = response.data.SpacesDB;
 	});
-	
 	// Assign the database to the $scope (so it can be used in HTML)
-	$scope.spots = tb.table;
+	//$scope.spots = tb.table;
 	console.log("Status Spot: " + $rootScope.status.Campus + " " + $rootScope.status.Permit + " " + $rootScope.status.Lot + " " + $rootScope.status.Spot);
 
 });
+
+
+// test Controller function
+parkingApp.controller('testController', function($rootScope,$scope, $http) {
+	$scope.dir = 'test';
+	$http.get("http://untparkingio.000webhostapp.com/database/printFullDB.php")
+	   .then(function (response) {
+			$scope.test = response.data.ParkingDB;
+	});
+
+       //added by Peter
+       	$scope.Spot = '';
+	$scope.Lot = '';
+        $scope.Permit = '';
+
+        $scope.displayInput = function(x) {
+             //alert ('im here' + x);
+             //alert (x.Spot + x.Lot + x.Permit);
+              
+            $scope.Lot = x.Lot;
+              $scope.Permit = x.Permit ;
+             var strUserInput = '<h2>LOT{{' +  x.Lot + '}}-{{' +  x.Space + ' }}</h4>' +
+					'<h4>Permit: {{' +  x.Permit + '}}</h4>' ;
+
+            if (x.isOpen == 1) 
+                 strUserInput = strUserInput + '<h4>Vacant: Yes</h4>';
+            else
+                strUserInput = strUserInput + '<h4>Vacant: No</h4>';
+                 
+
+		alert (strUserInput);
+	}
+
+});	
+
 
 parkingApp.filter('capitalize', function() {
 	return function(input){
@@ -116,30 +106,8 @@ parkingApp.filter('capitalize', function() {
 	}
 });
 
+
 parkingApp.controller('navController', function($rootScope,$scope, $http) {
-	// get starting value of nav
-	var URL = window.location.href;
 
-	// if page is not initialized, ie .match failed, we will set
-	// to home (done below) since the only way for that to occur is if
-	// we go directly to the url only.
-	var page = URL.match(/(#\/)\w*/);
 
-	// test to see if page is not null, if so we set 
-	if( page != null ){
-		var page = page[0];
-		var len = page.length;
-		// set starting value for use
-		if( !page.substring(2))
-			$scope.nav = 'home';
-		else
-			$scope.nav = page.substring(2);
-	}
-	else	// the page variable was not initialized, so fall back to home.
-		$scope.nav = 'home';
-
-	// Change current title and current navigation
-	$scope.cNav = function( newNav ){
-		$scope.nav = newNav;
-	} 
 });

@@ -1,19 +1,30 @@
+<!--<div class="row">
+		<h4>
+			<a href="#/home" type="button" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3" ng-show="status.Campus != 'default'">{{status.Campus}} </a>
+			<a href="#/permits" ng-show="status.Permit != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Permit {{status.Permit}} </a>
+			<a href="#/lots" ng-show="status.Lot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Lot{{status.Lot}} </a>
+			<a href="#/spots" ng-show="status.Spot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Space {{status.Spot}} </a>
+		</h4>
+</div> -->
 <div id="content"  class="row">
 	<div class="col-xs-12" id="filterBar">
 		<h3>Select a Lot</h3>
-		<form ng-init="criteria = Lot">
+		<form ng-init="criteria = Lot" ng-show="x.Permit == status.Permit || status.Permit == 'default'">
 			<label class="">Filter Spot by: </label>
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Lot">Lot Number</label>
 				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Campus">Campus</label>
-				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Spots">Spots Free</label>
-				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="Open == 'false' ">Open Lots</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="!Permits">Permit</label>
+				<label class="radio-inline"><input ng-model="status" type="radio" name="optradio" value="isOpen == 'false' ">Open Lots</label>
 		</form>
 		<div class="row">
 			<div class="" ng-repeat="x in lots | orderBy: status">
-				<a href="#/spots" type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-model="status" ng-click="status.Lot = x.Lot" ng-class="{true:'btn-success', false:'btn-danger disabled'}[x.Open]">
+				<a href="#/spots" type="button" class="btn btn-sqr btn-fat btn-sm col-xs-12" ng-model="status" ng-click="status.Lot = x.Lot" 
+					ng-show="x.Permit == status.Permit || status.Permit == 'default'"	ng-class="{true:'btn-success', false:'btn-danger disabled'}[x.isLotOpen == 1]">
 					<h2>LOT{{ x.Lot }}</h2>
-					<h4>Campus: {{ x.Campus }}</h4>
-					<h4>Open Spots: {{ x.Spots }}/{{ x.Total }}</h4>
+					<h3>{{ x.Campus }}</h3>
+					<h4>{{ x.Permit }}</h4>
+					<h4 ng-show="x.isLotOpen == 1">Available</h4>
+					<h4 ng-show="x.isLotOpen == 0">Unavailable</h4> 
 				</a>
 			</div>
 		</div>

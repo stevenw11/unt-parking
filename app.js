@@ -24,6 +24,10 @@ parkingApp.config(function($routeProvider) {
 		templateUrl : 'views/spots/spots.html',
 		controller 	: 'spotController',
 	})
+	.when('/test', {
+		templateUrl : 'views/test/test.html',
+		controller 	: 'testController',
+	})
 // we must add new routes with each page so here's a basic structure
 // the html in a page would look like. . . 
 // . . . <a href="#/<address>"> <page></a>  . . . .

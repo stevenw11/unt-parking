@@ -1,6 +1,14 @@
+<!--<div class="row">
+		<h4>
+			<a href="#/home" type="button" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3" ng-show="status.Campus != 'default'">{{status.Campus}} </a>
+			<a href="#/permits" ng-show="status.Permit != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Permit {{status.Permit}} </a>
+			<a href="#/lots" ng-show="status.Lot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Lot{{status.Lot}} </a>
+			<a href="#/spots" ng-show="status.Spot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Space {{status.Spot}} </a>
+		</h4>
+</div> -->
 <div id="content" class="row">
 	<div class="col-xs-12">
-		<h4>Select your campus</h4><br>
+		<h3>Select your campus</h3><br>
 		<div class="row">
 			<div class="" ng-repeat="x in campus">
 				<a href="#/permits" type="button" class="btn btn-success btn-lg btn-sqr btn-fat col-xs-12 col-md-6" ng-model="status" ng-click="status.Campus = x.Campus">

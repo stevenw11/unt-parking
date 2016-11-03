@@ -1,12 +1,20 @@
+<!--<div class="row">
+		<h4>
+			<a href="#/home" type="button" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3" ng-show="status.Campus != 'default'">{{status.Campus}} </a>
+			<a href="#/permits" ng-show="status.Permit != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Permit {{status.Permit}} </a>
+			<a href="#/lots" ng-show="status.Lot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Lot{{status.Lot}} </a>
+			<a href="#/spots" ng-show="status.Spot != 'default'" class="btn btn-success btn-sm btn-sqr btn-fat col-xs-3">Space {{status.Spot}} </a>
+		</h4>
+</div> -->
 <div id="content" class="row">
 	<div class="col-xs-12">
 		<h3>Select your Permit</h3>
 		<div class="row">
-			<div class="" ng-repeat="x in permits">
+			<div class="" ng-repeat="x in permit">
 				<a href="#/lots" type="button" ng-model="status" ng-click="status.Permit = x.Permit"
 					class="btn btn-sqr btn-success btn-lg btn-fat col-xs-12 col-md-6">
 					<h1>{{ x.Permit }}</h1>
-					<h6>{{ x.Type }}</h6>
+					<h6>{{ x.Title }}</h6>
 				</a>
 			</div>
 		</div>

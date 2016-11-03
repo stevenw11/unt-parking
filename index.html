@@ -4,14 +4,16 @@
     <title>Unicorn Parking</title>
     <meta charset="utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script src="app.js"></script>
-    <script src="controllers
-.js"></script>
+    <script src="controllers.js"></script>
+	<?php
+		session_start();		// Start recording data inputted by user
+	?>
   <body class="" ng-controller="mainController">
     <!-- Internal sidebar that appears -->
     <div class="side-container" ng-controller="navController">
@@ -20,11 +22,8 @@
 		<div class="">
 	 	 	<a href="#/" ng-click="cNav('home')">
 			<img src="/assets/images/unicorn.png" class="img-responsive" alt="Unicorn Parking">
-	    	<!--<h2 class="title-navbar">UNICORN PARKING</h2>
-			<h4 class="title-navbar">Find That Rare Spot<h4> -->
       		</a>
 		</div>
-	  <!--<hr>-->
 	  <div>
     	<a href="#/">Select Campus</a>
  	    <a href="#/permits">Select Permit</a>
@@ -49,13 +48,13 @@
     </div> 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 ">
-				<h1 class="page-header">Unicorn Parking</h1>
+			<div class="col-xs-12">
+				<h1 class="header-title">Unicorn Parking</h1>
 				<h3 class="">Find that Rare Spot</h3>
 			</div>
 		</div>
     	<!-- MAIN CONTENT AND INJECTED VIEWS -->
-    	<div id="main" class="resultDisplay" ng-view >
+    	<div id="main" class="resultDisplay" ng-view>
     	    <!-- angular templating -->
     	    <!-- this is where content will be injected -->
     	</div> 
